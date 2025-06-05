@@ -4,13 +4,14 @@
 		<title>ArcGE Test</title>
 	</head>
 	<body>
-		<p id="h">test</p>
+		<p id="p">test</p>
+		<canvas id="c" width="320" height="240" style="border: 1px solid black;"></canvas>
 		<script type="module">
-			import { ArcGE } from "../library/arcge.js";
-
-			const h = document.getElementById("h");
-			const text = ArcGE();
-			h.innerText = text;
+			import { ArcGE } from "../lib/arcge.js";
+			const p = document.getElementById("p");
+			p.innerText = ArcGE.version;
+			const engine = new ArcGE("c");
+			console.log(engine);
 		</script>
 	</body>
 </html>
