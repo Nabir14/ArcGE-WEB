@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>ArcGE Test</title>
+	</head>
+	<body>
+		<p id="h">test</p>
+		<script type="module">
+			import { ArcGE } from "./arcge.js";
+
+			const h = document.getElementById("h");
+			const text = ArcGE();
+			h.innerText = text;
+		</script>
+	</body>
+</html>
