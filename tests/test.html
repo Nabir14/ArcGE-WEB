@@ -19,15 +19,19 @@
 			const engine = new ArcGE("c");
 			const myScene = new Scene2D(engine);
 
-			const myBox = new Rect2D(myScene, 0, 0, 32, 32);
+			myScene.setClearColor(0, 0, 0, 255);
+			myScene.setBackground("https://static.wikia.nocookie.net/unanything/images/2/2a/Amogus.png");
+
+			const myBox = new Rect2D(myScene, 0, 0, 64, 64);
 			myBox.setColor(0, 0, 255, 255);
+			myBox.setTexture("https://static.wikia.nocookie.net/unanything/images/2/2a/Amogus.png");
 
 			console.log(engine);
 			console.log(myScene);
 			console.log(myBox);
 			
 			function loop(){
-				myScene.clear(0, 0, 0, 255);
+				myScene.render();
 				myBox.draw();
 
 				requestAnimationFrame(loop);
