@@ -1,9 +1,10 @@
 {
   "name": "@arcge/arcge-web",
-  "type": "module",
-  "version": "0.3.0",
+  "version": "0.3.3",
   "description": "Arc Game Library for the Web.",
-  "main": "index.js",
+  "main": "lib/arcge.js",
+  "module": "dist/arcge.es.js",
+  "type": "module",
   "publishConfig": {
 	"access": "public"
   },
