@@ -1,6 +1,6 @@
 {
   "name": "@arcge/arcge-web",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "Arc Game Library for the Web.",
   "main": "lib/arcge.js",
   "module": "dist/arcge.es.js",

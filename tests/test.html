@@ -9,14 +9,30 @@
 		<p id="v">version</p>
 		<canvas id="c" width="320" height="240" style="border: 1px solid black;"></canvas>
 		<script type="module">
-			import { ArcGE } from "../dist/arcge.es.js";
+			import { ArcGE, Scene2D, Rect2D } from "../dist/arcge.es.js";
+
 			const a = document.getElementById("a");
 			const v = document.getElementById("v");
 			a.innerText = ArcGE.author;
 			v.innerText = ArcGE.version;
+
 			const engine = new ArcGE("c");
+			const myScene = new Scene2D(engine);
+
+			const myBox = new Rect2D(myScene, 0, 0, 32, 32);
+			myBox.setColor(0, 0, 255, 255);
+
 			console.log(engine);
-			engine.destroy();
+			console.log(myScene);
+			console.log(myBox);
+			
+			function loop(){
+				myScene.clear(0, 0, 0, 255);
+				myBox.draw();
+
+				requestAnimationFrame(loop);
+			}
+			requestAnimationFrame(loop);
 		</script>
 	</body>
 </html>
