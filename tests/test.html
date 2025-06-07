@@ -9,7 +9,7 @@
 		<p id="v">version</p>
 		<canvas id="c" width="320" height="240" style="border: 1px solid black;"></canvas>
 		<script type="module">
-			import { ArcGE, Scene2D, Rect2D } from "../lib/arcge.js";
+			import { ArcGE, Scene2D, Rect2D } from "../dist/arcge.js";
 
 			const a = document.getElementById("a");
 			const v = document.getElementById("v");
@@ -30,13 +30,22 @@
 			console.log(myScene);
 			console.log(myBox);
 			
+			let speed = 5.0;
+
 			function loop(){
 				myScene.render();
 				myBox.draw();
 				
-				const key = engine.pollEvent();
-				if(key == engine.KeyCode.KEY_D){
-					myBox.y -= 9.8;
+				engine.pollEvent();
+
+				if(engine.keyDownState(engine.KeyCode.DOWN)){
+					myBox.y += speed;
+				}else if(engine.keyDownState(engine.KeyCode.UP)){
+					myBox.y -= speed;
+				}else if(engine.keyDownState(engine.KeyCode.RIGHT)){
+					myBox.x += speed;
+				}else if(engine.keyDownState(engine.KeyCode.LEFT)){
+					myBox.x -= speed;
 				}
 
 				requestAnimationFrame(loop);
