@@ -33,6 +33,11 @@
 			function loop(){
 				myScene.render();
 				myBox.draw();
+				
+				const key = engine.pollEvent();
+				if(key == engine.KeyCode.KEY_D){
+					myBox.y -= 9.8;
+				}
 
 				requestAnimationFrame(loop);
 			}
