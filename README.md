@@ -4,12 +4,9 @@ Arc Game Library for the Web.
 ![arcge-web-icon](https://github.com/user-attachments/assets/9cfc9571-ad6a-4ffa-a04e-730864a31bc0)
 
 **Library Information:**
-<<<<<<< HEAD
 - Version: `0.3.7` (Alpha)
-=======
-- Version: `0.3.6` (Alpha)
->>>>>>> a5c3598c83555a4ea90246efd7071a35e023ddf1
 - Renderer: `2D`
+
 # Screenshots:
 soon!
 
