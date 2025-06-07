@@ -18,7 +18,7 @@ npm install @arcge/arcge-web
 ```
 or
 ```sh
-npm install @arc-ge/arcge-web@version
+npm install @arcge/arcge-web@version
 ```
 
 ## Manual Usage Without Installation:
@@ -38,7 +38,7 @@ import * as ARC from "pathToModule";
 **4. Run && Enjoy!**
 
 # Example Codes:
-*Check "tests" in "src" for test code files*
+*Check the "test" folder for test code files*
 **soon!**
 
 **Please open an issue if you find any bugs or Pull Request to contribute to the project!**
