@@ -13,6 +13,8 @@ export class Scene2D{
 		this.a = 0;
 		this.texture = new Image();
 		this.isTextureLoaded = false;
+        this.CameraRectX = 0;
+        this.CameraRectY = 0;
 	}
 
     ...
