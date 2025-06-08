@@ -1,7 +1,10 @@
 # ArcGE-WEB
 Arc Game Library for the Web.
-
-![arcge-web-icon](https://github.com/user-attachments/assets/9cfc9571-ad6a-4ffa-a04e-730864a31bc0)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="arcge-web-icon-light.png">
+  <source media="(prefers-color-scheme: light)" srcset="arcge-web-icon-dark.png">
+  <img alt="Fallback image description" src="arcge-web-icon.png">
+</picture>
 
 **Library Information:**
 - Version: `0.3.8` (Alpha)
