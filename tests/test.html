@@ -45,6 +45,8 @@
 				myScene.render();
 				myBox.draw();
 				myBox2.draw();
+				myHitbox.debug();
+				myHitbox2.debug();
 				myCamera.view();
 				
 
@@ -59,6 +61,9 @@
 					myBox.x -= speed;
 					console.log("x-");
 				}
+				myBox.checkForCollision();
+				myBox2.checkForCollision();
+
 
 				requestAnimationFrame(loop);
 			}
