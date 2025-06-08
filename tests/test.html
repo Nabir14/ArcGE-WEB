@@ -9,7 +9,7 @@
 		<p id="v">version</p>
 		<canvas id="c" width="320" height="240" style="border: 1px solid black;"></canvas>
 		<script type="module">
-			import { ArcGE, Scene2D, Rect2D } from "../lib/arcge.js";
+			import { ArcGE, Scene2D, Rect2D, Camera2D } from "../lib/arcge.js";
 
 			const a = document.getElementById("a");
 			const v = document.getElementById("v");
@@ -26,6 +26,8 @@
 			myBox.setColor(0, 0, 255, 255);
 			myBox.setTexture("https://static.wikia.nocookie.net/unanything/images/2/2a/Amogus.png");
 
+			const myCamera = new Camera2D(myScene);
+			
 			console.log(engine);
 			console.log(myScene);
 			console.log(myBox);
@@ -37,6 +39,7 @@
 			function loop(){
 				myScene.render();
 				myBox.draw();
+				myCamera.view();
 				
 
 				if(engine.checkKeyState(engine.KeyCode.DOWN)){
@@ -44,9 +47,9 @@
 				}else if(engine.checkKeyState(engine.KeyCode.UP)){
 					myBox.y -= speed;
 				}else if(engine.checkKeyState(engine.KeyCode.RIGHT)){
-					myBox.x += speed;
+					myCamera.x += speed;
 				}else if(engine.checkKeyState(engine.KeyCode.LEFT)){
-					myBox.x -= speed;
+					myCamera.x -= speed;
 				}
 
 				requestAnimationFrame(loop);

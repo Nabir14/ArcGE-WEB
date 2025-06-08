@@ -17,6 +17,7 @@ export class Scene2D{
 
     ...
 
+}
 ```
 
 The `Scene2D` class takes previously defined `ArcGE` class to use the **Canvas** and **Canvas Context**. It defines the `r`, `g`, `b` and `a` values to use it as its clear color. It defines the `texture` to use as background and the `isTextureLoaded` to decide if it can render a texture. It can now be passed to a object class like `Rect2D`.
