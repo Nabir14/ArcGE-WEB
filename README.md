@@ -40,6 +40,8 @@ import * as ARC from "pathToModule";
 
 # Example Codes:
 *Check the "test" folder for test code files*
-**soon!**
+
+# ArcGE-WEB Documentation:
+https://arcge.gitbook.io/arcge-web-docs
 
 **Please open an issue if you find any bugs or Pull Request to contribute to the project!**
