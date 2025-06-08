@@ -1,8 +1,8 @@
 # ArcGE-WEB
 Arc Game Library for the Web.
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="arcge-web-icon-light.png">
-  <source media="(prefers-color-scheme: light)" srcset="arcge-web-icon-dark.png">
+  <source media="(prefers-color-scheme: dark)" srcset="arcge-web-icon-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="arcge-web-icon-light.png">
   <img alt="Fallback image description" src="arcge-web-icon.png">
 </picture>
 
