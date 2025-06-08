@@ -4,19 +4,15 @@
 		<title>ArcGE Test</title>
 	</head>
 	<body>
-		<h1>ArcGE Test</h1>
-		<p id="a">author</p>
-		<p id="v">version</p>
 		<canvas id="c" width="320" height="240" style="border: 1px solid black;"></canvas>
 		<script type="module">
-			import { ArcGE, Scene2D, Rect2D, Camera2D } from "../lib/arcge.js";
+			import { ArcGE, Scene2D, Rect2D, Camera2D, CollisionHitbox2D } from "../lib/arcge.js";
 
-			const a = document.getElementById("a");
-			const v = document.getElementById("v");
-			a.innerText = ArcGE.author;
-			v.innerText = ArcGE.version;
+			console.log(ArcGE.author);
+			console.log(ArcGE.version);
 
 			const engine = new ArcGE("c");
+			engine.toggleFullscreen();
 			const myScene = new Scene2D(engine);
 
 			myScene.setClearColor(0, 0, 0, 255);
@@ -26,12 +22,21 @@
 			myBox.setColor(0, 0, 255, 255);
 			myBox.setTexture("https://static.wikia.nocookie.net/unanything/images/2/2a/Amogus.png");
 
+			const myBox2 = new Rect2D(myScene, 128, 0, 64, 64);
+			myBox2.setColor(255, 0, 0, 255);
+
 			const myCamera = new Camera2D(myScene);
+			
+			const myHitbox = new CollisionHitbox2D(myScene);
+			const myHitbox2 = new CollisionHitbox2D(myScene);
+
+			myBox.setHitbox(myHitbox);
+			myBox2.setHitbox(myHitbox2);
 			
 			console.log(engine);
 			console.log(myScene);
 			console.log(myBox);
-			
+
 			let speed = 5.0;
 			
 			engine.queueEvents();
@@ -39,17 +44,20 @@
 			function loop(){
 				myScene.render();
 				myBox.draw();
+				myBox2.draw();
 				myCamera.view();
 				
 
 				if(engine.checkKeyState(engine.KeyCode.DOWN)){
-					myBox.y += speed;
+					myCamera.y += speed;
 				}else if(engine.checkKeyState(engine.KeyCode.UP)){
-					myBox.y -= speed;
+					myCamera.y -= speed;
 				}else if(engine.checkKeyState(engine.KeyCode.RIGHT)){
-					myCamera.x += speed;
+					myBox.x += speed;
+					console.log("x+");
 				}else if(engine.checkKeyState(engine.KeyCode.LEFT)){
-					myCamera.x -= speed;
+					myBox.x -= speed;
+					console.log("x-");
 				}
 
 				requestAnimationFrame(loop);
