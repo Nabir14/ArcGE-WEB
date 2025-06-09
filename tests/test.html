@@ -20,13 +20,16 @@
 			const box1 = new ARC.Rect2D(scene);
 			box1.setColor(0, 0, 255, 255);
 
-			const col1 = new ARC.CollisionHitbox2D(scene);
+			const col1 = new ARC.Hitbox2D(scene);
 			box1.setHitbox(col1);
+
+		// uncomment the line below to stop it from being a barrier
+		//	col1.setDetectionMode(true);
 
 			const box2 = new ARC.Rect2D(scene);
 			box2.setColor(255, 0, 0, 255);
 
-			const col2 = new ARC.CollisionHitbox2D(scene);
+			const col2 = new ARC.Hitbox2D(scene);
 			box2.setHitbox(col2);
 
 			const camera = new ARC.Camera2D(scene);
@@ -38,18 +41,24 @@
 			col1.setSize(64, 64);
 			col2.setSize(128, 64);
 
-			console.log(col1.hitboxID);
-			console.log(col2.hitboxID);
-
 			function loop(){
 
 				box1.y += 1;
 
+				// uncomment the line below if you need to log when it collides
+/*
+				if(col1.isHitboxColliding()){
+					console.log("collision!");	
+				}
+*/
 				scene.render();
 				box1.draw();
 				box2.draw();
-				col1.debug();
-				col2.debug();
+				// uncomment the line below to draw debug outlines
+				/*
+				col1.drawDebugOutline();
+				col2.drawDebugOutline();
+				*/
 				camera.view();
 
 				requestAnimationFrame(loop);
