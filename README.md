@@ -5,7 +5,7 @@ Arc Game Library for the Web.
 
 
 **Library Information:**
-- Version: `0.3.8` (Alpha)
+- Version: `0.3.9` (Alpha)
 - Renderer: `2D`
 
 # Screenshots:
