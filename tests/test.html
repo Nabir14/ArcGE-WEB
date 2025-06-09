@@ -6,64 +6,48 @@
 	<body>
 		<canvas id="c" width="320" height="240" style="border: 1px solid black;"></canvas>
 		<script type="module">
-			import { ArcGE, Scene2D, Rect2D, Camera2D, CollisionHitbox2D } from "../lib/arcge.js";
+			import * as ARC from "../lib/arcge.js";
 
-			console.log(ArcGE.author);
-			console.log(ArcGE.version);
+			console.log(ARC.ArcGE.author);
+			console.log(ARC.ArcGE.version);
 
-			const engine = new ArcGE("c");
+			const engine = new ARC.ArcGE("c");
 			engine.toggleFullscreen();
-			const myScene = new Scene2D(engine);
 
-			myScene.setClearColor(0, 0, 0, 255);
-			myScene.setBackground("https://static.wikia.nocookie.net/unanything/images/2/2a/Amogus.png");
+			const scene = new ARC.Scene2D(engine);
+			scene.setClearColor(0, 0, 0, 255);
 
-			const myBox = new Rect2D(myScene, 0, 0, 64, 64);
-			myBox.setColor(0, 0, 255, 255);
-			myBox.setTexture("https://static.wikia.nocookie.net/unanything/images/2/2a/Amogus.png");
+			const box1 = new ARC.Rect2D(scene);
+			box1.setColor(0, 0, 255, 255);
 
-			const myBox2 = new Rect2D(myScene, 128, 0, 64, 64);
-			myBox2.setColor(255, 0, 0, 255);
+			const col1 = new ARC.CollisionHitbox2D(scene);
+			box1.setHitbox(col1);
 
-			const myCamera = new Camera2D(myScene);
-			
-			const myHitbox = new CollisionHitbox2D(myScene);
-			const myHitbox2 = new CollisionHitbox2D(myScene);
+			const box2 = new ARC.Rect2D(scene);
+			box2.setColor(255, 0, 0, 255);
 
-			myBox.setHitbox(myHitbox);
-			myBox2.setHitbox(myHitbox2);
-			
-			console.log(engine);
-			console.log(myScene);
-			console.log(myBox);
+			const col2 = new ARC.CollisionHitbox2D(scene);
+			box2.setHitbox(col2);
 
-			let speed = 5.0;
-			
-			engine.queueEvents();
-			
+			const camera = new ARC.Camera2D(scene);
+
+			box1.setPos(0, 0);
+			box2.setPos(0, 256);
+			box1.setSize(64, 64);
+			box2.setSize(128, 64);
+			col1.setSize(64, 64);
+			col2.setSize(128, 64);
+
 			function loop(){
-				myScene.render();
-				myBox.draw();
-				myBox2.draw();
-				myHitbox.debug();
-				myHitbox2.debug();
-				myCamera.view();
-				
 
-				if(engine.checkKeyState(engine.KeyCode.DOWN)){
-					myCamera.y += speed;
-				}else if(engine.checkKeyState(engine.KeyCode.UP)){
-					myCamera.y -= speed;
-				}else if(engine.checkKeyState(engine.KeyCode.RIGHT)){
-					myBox.x += speed;
-					console.log("x+");
-				}else if(engine.checkKeyState(engine.KeyCode.LEFT)){
-					myBox.x -= speed;
-					console.log("x-");
-				}
-				myBox.checkForCollision();
-				myBox2.checkForCollision();
+				box1.y += 1;
 
+				scene.render();
+				box1.draw();
+				box2.draw();
+				col1.debug();
+				col2.debug();
+				camera.view();
 
 				requestAnimationFrame(loop);
 			}
