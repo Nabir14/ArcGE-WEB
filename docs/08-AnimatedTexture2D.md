@@ -1,4 +1,4 @@
-# AnimatedTexture2D
+# AnimatedTexture2D Class
 
 The `AnimatedTexture2D` can be used to create animated textures on object. It takes a vertical spritesheet and returns a single frame based on the animation logic. It must be assigned as a texture to an Object in the **Game Loop** after the object has drawn.
 
@@ -20,4 +20,4 @@ export class AnimatedTexture2D{
 }
 ```
 
-The `AnimatedTexture2D` class has a `setSpriteSheet()` function which can he used to set the **Sprite Sheet**. It takes the spritesheet file path and the size of a single frame in the spritesheet as its parameter. It can be then assigned to a object as a texture by passing it calling the `animate()` funcion. This must be done in the **Game Loop** after the target object has been drawn.
+The `AnimatedTexture2D` class has a `setSpriteSheet()` function which can be used to set the **Sprite Sheet**. It takes the spritesheet file path and the size of a single frame in the spritesheet as its parameter. It can be then assigned to a object as a texture by passing it calling the `animate()` funcion. This must be done in the **Game Loop** after the target object has been drawn.
