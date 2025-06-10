@@ -44,6 +44,7 @@
 			function loop(){
 
 				box1.y += 1;
+				scene.render();
 
 				// uncomment the line below if you need to log when it collides
 /*
@@ -51,9 +52,9 @@
 					console.log("collision!");	
 				}
 */
-				scene.render();
 				box1.draw();
 				box2.draw();
+
 				// uncomment the line below to draw debug outlines
 				/*
 				col1.drawDebugOutline();
