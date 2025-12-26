@@ -1,6 +1,5 @@
 export class AnimatedTexture2D{
-	constructor(arcsci){
-		this.arcsci = arcsci;
+	constructor(){
 		this.spriteSheet = new Image();
 		this.frameSizeX = 0;
 		this.frameSizeY = 0;
@@ -8,6 +7,7 @@ export class AnimatedTexture2D{
 		this.currentFrame = 0;
 		this.isSpriteSheetLoaded = false;
 	}
+
 	setSpriteSheet(spriteSheetPath, fSX, fSY){
 		this.spriteSheet.src = spriteSheetPath;
 		this.spriteSheet.onload = () => {
@@ -17,6 +17,7 @@ export class AnimatedTexture2D{
 			this.totalFrames = Math.floor(this.spriteSheet.width / this.frameSizeX);
 		}
 	}
+	
 	animate(speed = 1){
 		if(this.isSpriteSheetLoaded === true){
 			let tempCanvas = document.createElement("canvas");

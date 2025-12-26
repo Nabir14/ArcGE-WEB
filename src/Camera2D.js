@@ -1,15 +1,15 @@
-export class Camera2D{
-	constructor(arcsci, pX = 0, pY = 0){
-		this.arcsci = arcsci;
-		this.x = pX;
-		this.y = pY;
+import { Point2D } from "./Point2D";
+
+export class Camera2D {
+	constructor(pos){
+		this.pos = pos;
 	}
-	setPos(pX, pY){
-		this.x = pX;
-		this.y = pY;
+
+	setPos(pos){
+		this.pos = pos;
 	}
-	view(){
-		this.arcsci.CameraRectX = this.x;
-		this.arcsci.CameraRectY = this.y;
+	
+	getPos(){
+		return this.pos;
 	}
 }

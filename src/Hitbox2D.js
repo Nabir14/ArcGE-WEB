@@ -1,67 +1,72 @@
+import { Enums } from "./Enums";
+
 export class Hitbox2D{
-	constructor(arcsci, pX = 0, pY = 0, width = 0, height = 0, mode = "static"){
+	constructor(arcsci, pos = new Point2D(0, 0), width = 0, height = 0, mode = Enums.HitboxModes.STATIC){
 		this.arcsci = arcsci;
-		this.mode = "";
-		this.x = pX;
-		this.y = pY;
+		this.mode = mode;
+		this.pos = pos;
 		this.width = width;
 		this.height = height;
 		this.isColliding = false;
 		this.cX = 0.0;
 		this.cY = 0.0;
-		this.collidingFace = "";
-		this.HBOXID = "";
-		this.isDetectionOnly = false;
+		this.collidingFace = 0;
+		this.id = "";
 	}
-	setPos(pX, pY){
-		this.x = pX;
-		this.y = pY;
+
+	setPos(pos){
+		this.pos = pos;
 	}
+	
 	setSize(w, h){
 		this.width = w;
 		this.height = h;
 	}
-	setDetectionMode(mode){
-		this.isDetectionOnly = mode;
-	}
+	
 	setMode(mode){
 		this.mode = mode;
 	}
+	
 	isHitboxColliding(){
-		for(let i = 0; i < Object.keys(this.arcsci.colliderQueue).length; i++){
-			let colObj = this.arcsci.colliderQueue["HBOX#ID"+i.toString()];
-			if(this.HBOXID != "HBOX#ID"+i.toString()){
-				if(this.x < colObj.x + colObj.width && this.x + this.width > colObj.x && this.y < colObj.y + colObj.height && this.y + this.height > colObj.y){
-
-					let olUp = (this.y + this.height) - colObj.y;
-					let olDown = (colObj.y + colObj.height) - this.y;
-					let olLeft = (this.x + this.width) - colObj.x;
-					let olRight = (colObj.x + colObj.width) - this.x;
-					this.cX = Math.min(olLeft, olRight);
-					this.cY = Math.min(olUp, olDown);
-
-					if(this.cX < this.cY){
-						if(olLeft < olRight){
-							this.collidingFace = "LEFT";
-						}else{
-							this.collidingFace = "RIGHT";
-						}
-					}else{
-						if(olUp < olDown){
-							this.collidingFace = "TOP";
-						}else{
-							this.collidingFace = "BOTTOM";
-						}
-					}
-
-				this.isColliding = true;
-				return true;
-				}
+		Object.keys(this.arcsci.colliderQueue).forEach(id => {
+			let colObj = this.arcsci.colliderQueue[id];
+		
+			if(this.id == id){
+				return;
 			}
-		}
+		
+			if(this.pos.x < colObj.pos.x + colObj.width && this.pos.x + this.width > colObj.pos.x && this.pos.y < colObj.pos.y + colObj.height && this.pos.y + this.height > colObj.pos.y){
+
+				let olUp = (this.pos.y + this.height) - colObj.pos.y;
+				let olDown = (colObj.pos.y + colObj.height) - this.pos.y;
+				let olLeft = (this.pos.x + this.width) - colObj.pos.x;
+				let olRight = (colObj.pos.x + colObj.width) - this.pos.x;
+				this.cX = Math.min(olLeft, olRight);
+				this.cY = Math.min(olUp, olDown);
+
+				if(this.cX < this.cY){
+					if(olLeft < olRight){
+						this.collidingFace = Enums.HitboxCollidingFaces.LEFT;
+					}else{
+						this.collidingFace = Enums.HitboxCollidingFaces.RIGHT;
+					}
+				}else{
+					if(olUp < olDown){
+						this.collidingFace = Enums.HitboxCollidingFaces.TOP;
+					}else{
+						this.collidingFace = Enums.HitboxCollidingFaces.BOTTOM;
+					}
+				}
+
+			this.isColliding = true;
+			return true;
+			}
+		});
+
 		this.isColliding = false;
 		return false;
 	}
+	
 	drawDebugOutline(){
 		this.arcsci.arcci.ArcGE_CanvasContext.lineWidth = 2;
 		if(this.isColliding === true){

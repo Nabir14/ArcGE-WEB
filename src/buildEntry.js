@@ -5,6 +5,11 @@ import { Camera2D } from './Camera2D.js'
 import { Hitbox2D } from './Hitbox2D.js'
 import { AnimatedTexture2D } from './AnimatedTexture2D.js'
 import { AudioPlayer } from './AudioPlayer.js'
+import { Point2D } from './Point2D.js'
+import { Texture2D } from './Texture2D.js'
+import { Color } from './Color.js'
+import { Enums } from './Enums.js'
+import { EventManager } from './EventManager.js'
 
 export {
 	ArcGE,
@@ -13,5 +18,10 @@ export {
 	Camera2D,
 	Hitbox2D,
 	AnimatedTexture2D,
-	AudioPlayer
+	AudioPlayer,
+	Point2D,
+	Texture2D,
+	Color,
+	Enums,
+	EventManager
 }

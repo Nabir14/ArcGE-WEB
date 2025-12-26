@@ -5,7 +5,7 @@ Arc Game Library for the Web.
 
 
 **Library Information:**
-- Version: `0.4.0` (Alpha)
+- Version: `0.4.3` (Alpha)
 - Renderer: `2D`
 
 # Screenshots:
@@ -44,5 +44,7 @@ import * as ARC from "pathToModule";
 
 # ArcGE-WEB Documentation:
 https://arcge.gitbook.io/arcge-web-docs
+
+**NOTE: Docs are outdated as of v0.4.2 and will be updated again at v1.0 release**
 
 **Please open an issue if you find any bugs or Pull Request to contribute to the project!**
